@@ -1,0 +1,23 @@
+{
+  "name": "react-code-mirror",
+  "version": "0.0.0",
+  "description": "CodeMirror component for Facebook React",
+  "keywords": [],
+  "peerDependencies": {
+    "codemirror": "^4.6.0",
+    "react": "^0.11.2"
+  },
+  "devDependencies": {
+    "browserify": "^5.12.0",
+    "browserify-middleware": "^3.0.1",
+    "codemirror": "^4.6.0",
+    "express": "^4.9.5",
+    "react": "^0.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/react-code-mirror.git"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
+}
