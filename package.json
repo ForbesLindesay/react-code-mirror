@@ -1,6 +1,6 @@
 {
   "name": "react-code-mirror",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "CodeMirror component for Facebook React",
   "keywords": [],
   "peerDependencies": {
