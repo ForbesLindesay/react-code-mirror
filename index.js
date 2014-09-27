@@ -1,15 +1,15 @@
 'use strict';
 
 var React = require('react');
-var CodeMirror = require('codemirror');
+var CodeMirror;
 
 // adapted from:
 // https://github.com/facebook/react/blob/master/docs/_js/live_editor.js#L16
 
 // also used as an example:
-// https://github.com/facebook/react/blob/aae31ae24c67216894ae42b8481a599206d18690/src/browser/ui/dom/components/ReactDOMInput.js
+// https://github.com/facebook/react/blob/master/src/browser/ui/dom/components/ReactDOMInput.js
 
-var IS_MOBILE = (
+var IS_MOBILE = typeof navigator === 'undefined' || (
   navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/webOS/i)
     || navigator.userAgent.match(/iPhone/i)
@@ -18,6 +18,10 @@ var IS_MOBILE = (
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)
 );
+
+if (!IS_MOBILE) {
+  CodeMirror = require('codemirror');
+}
 
 var CodeMirrorEditor = React.createClass({
   getInitialState: function() {
