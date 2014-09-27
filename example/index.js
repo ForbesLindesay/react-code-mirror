@@ -49,8 +49,8 @@ function render() {
       mode: 'javascript',
       theme: 'solarized',
       lineNumbers: true,
-      onChange: function (value) {
-        src = value;
+      onChange: function (e) {
+        src = e.target.value;
         render();
       }
     }),
@@ -64,8 +64,8 @@ function render() {
       mode: 'javascript',
       theme: 'solarized',
       lineNumbers: true,
-      onChange: function (value) {
-        src = value;
+      onChange: function (e) {
+        src = e.target.value;
         render();
       }
     }),

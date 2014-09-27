@@ -21,13 +21,7 @@ var IS_MOBILE = (
 
 var CodeMirrorEditor = React.createClass({
   getInitialState: function() {
-    var defaultValue = this.props.defaultValue;
-    var value = defaultValue != null ? defaultValue : this.props.value;
-    return {
-      initialValue: value,
-      value: value,
-      isControlled: this.props.value != null
-    };
+    return { isControlled: this.props.value != null };
   },
 
   propTypes: {
@@ -48,9 +42,8 @@ var CodeMirrorEditor = React.createClass({
 
   componentDidUpdate: function() {
     if (this.editor) {
-      if (this.props.value != null && this.state.value != this.props.value) {
-        this.state.value = this.props.value;
-        if (this.editor.getValue() !== this.state.value) {
+      if (this.props.value != null) {
+        if (this.editor.getValue() !== this.props.value) {
           this.editor.setValue(this.props.value);
         }
       }
@@ -60,13 +53,13 @@ var CodeMirrorEditor = React.createClass({
   handleChange: function() {
     if (this.editor) {
       var value = this.editor.getValue();
-      if (value !== this.state.value) {
-        this.props.onChange && this.props.onChange(value);
-        if (this.editor.getValue() !== this.state.value) {
+      if (value !== this.props.value) {
+        this.props.onChange && this.props.onChange({target: {value: value}});
+        if (this.editor.getValue() !== this.props.value) {
           if (this.state.isControlled) {
             this.editor.setValue(this.props.value);
           } else {
-            this.state.value = value;
+            this.props.value = value;
           }
         }
       }
@@ -74,18 +67,12 @@ var CodeMirrorEditor = React.createClass({
   },
 
   render: function() {
-    var onChange = this.props.onChange;
-
-    var isTextArea = this.props.forceTextArea || IS_MOBILE;
-
     var editor = React.DOM.textarea({
       ref: 'editor',
       value: this.props.value,
       readOnly: this.props.readOnly,
       defaultValue: this.props.defaultValue,
-      onChange: onChange ? function (e) {
-        onChange(e.target.value);
-      } : undefined,
+      onChange: this.props.onChange,
       style: this.props.textAreaStyle,
       className: this.props.textAreaClassName || this.props.textAreaClass
     });
