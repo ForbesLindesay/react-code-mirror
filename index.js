@@ -71,7 +71,7 @@ var CodeMirrorEditor = React.createClass({
   },
 
   render: function() {
-    var editor = React.DOM.textarea({
+    var editor = React.createElement('textarea', {
       ref: 'editor',
       value: this.props.value,
       readOnly: this.props.readOnly,
@@ -81,7 +81,7 @@ var CodeMirrorEditor = React.createClass({
       className: this.props.textAreaClassName || this.props.textAreaClass
     });
 
-    return React.DOM.div({style: this.props.style, className: this.props.className}, editor);
+    return React.createElement('div', {style: this.props.style, className: this.props.className}, editor);
   }
 });
 
