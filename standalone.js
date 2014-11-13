@@ -2,7 +2,7 @@
 CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
 
 
-
+  var CodeMirror;
 
   // adapted from:
   // https://github.com/facebook/react/blob/master/docs/_js/live_editor.js#L16
@@ -10,7 +10,7 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
   // also used as an example:
   // https://github.com/facebook/react/blob/master/src/browser/ui/dom/components/ReactDOMInput.js
 
-  var IS_MOBILE = (
+  var IS_MOBILE = typeof navigator === 'undefined' || (
     navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)
@@ -19,6 +19,10 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
       || navigator.userAgent.match(/BlackBerry/i)
       || navigator.userAgent.match(/Windows Phone/i)
   );
+
+  if (!IS_MOBILE) {
+    CodeMirror = require('codemirror');
+  }
 
   var CodeMirrorEditor = React.createClass({
     getInitialState: function() {
@@ -29,7 +33,7 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
       value: React.PropTypes.string,
       defaultValue: React.PropTypes.string,
       style: React.PropTypes.object,
-      className: React.PropTypes.object,
+      className: React.PropTypes.string,
       onChange: React.PropTypes.func
     },
 
@@ -68,7 +72,7 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
     },
 
     render: function() {
-      var editor = React.DOM.textarea({
+      var editor = React.createElement('textarea', {
         ref: 'editor',
         value: this.props.value,
         readOnly: this.props.readOnly,
@@ -78,7 +82,7 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
         className: this.props.textAreaClassName || this.props.textAreaClass
       });
 
-      return React.DOM.div({style: this.props.style, className: this.props.className}, editor);
+      return React.createElement('div', {style: this.props.style, className: this.props.className}, editor);
     }
   });
 
