@@ -1,6 +1,6 @@
 {
   "name": "react-code-mirror",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "CodeMirror component for Facebook React",
   "keywords": [
     "react",
@@ -16,6 +16,9 @@
     "express": "^4.9.5",
     "react": "^0.12.0",
     "umd": "^2.1.0"
+  },
+  "scripts": {
+    "prepublish": "node build"
   },
   "repository": {
     "type": "git",
