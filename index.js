@@ -32,7 +32,7 @@ var CodeMirrorEditor = React.createClass({
     value: React.PropTypes.string,
     defaultValue: React.PropTypes.string,
     style: React.PropTypes.object,
-    className: React.PropTypes.object,
+    className: React.PropTypes.string,
     onChange: React.PropTypes.func
   },
 
