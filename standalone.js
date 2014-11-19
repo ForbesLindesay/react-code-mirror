@@ -1,7 +1,8 @@
 // auto-generated from index.js via build.js, do not edit directly
-CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
+CodeMirrorEditor = (function (require, module) {
+  'use strict';
 
-
+  var React = require('react');
   var CodeMirror;
 
   // adapted from:
@@ -86,5 +87,11 @@ CodeMirrorEditor = (function (React, CodeMirror) {  'use strict';
     }
   });
 
-  return CodeMirrorEditor;
-}(React, CodeMirror));
+  module.exports = CodeMirrorEditor;
+
+  return module.exports;
+}(function (id) {
+  if (id === "react") return React;
+  else if (id === "codemirror") return CodeMirror;
+  else throw new Error("Unexpected require of " + id);
+}, {exports: {}}));
