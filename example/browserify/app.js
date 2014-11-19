@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var CodeMirror = React.createFactory(require('../'));
+var CodeMirror = React.createFactory(require('../../'));
 
 var div = React.createFactory('div');
 var h1 = React.createFactory('h1');
