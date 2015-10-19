@@ -14,7 +14,8 @@
     "browserify-middleware": "^3.0.1",
     "codemirror": "^5.1.0",
     "express": "^4.9.5",
-    "react": "^0.13.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "umd": "^2.1.0"
   },
   "scripts": {

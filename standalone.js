@@ -41,7 +41,9 @@ CodeMirrorEditor = (function (require, module) {
     componentDidMount: function() {
       var isTextArea = this.props.forceTextArea || IS_MOBILE;
       if (!isTextArea) {
-        this.editor = CodeMirror.fromTextArea(this.refs.editor.getDOMNode(), this.props);
+        var editor = this.refs.editor;
+        if (!editor.getAttribute) editor = editor.getDOMNode();
+        this.editor = CodeMirror.fromTextArea(editor, this.props);
         this.editor.on('change', this.handleChange);
       }
     },
