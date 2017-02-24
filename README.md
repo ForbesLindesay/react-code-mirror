@@ -1,5 +1,7 @@
 # react-code-mirror
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/react-code-mirror.svg)](https://greenkeeper.io/)
+
 CodeMirror component for Facebook React
 
 [![Dependency Status](https://img.shields.io/david/ForbesLindesay/react-code-mirror.svg)](https://david-dm.org/ForbesLindesay/react-code-mirror)
