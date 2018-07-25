@@ -1,9 +1,6 @@
 # react-code-mirror
 
-CodeMirror component for Facebook React
-
-[![Dependency Status](https://img.shields.io/david/ForbesLindesay/react-code-mirror.svg)](https://david-dm.org/ForbesLindesay/react-code-mirror)
-[![NPM version](https://img.shields.io/npm/v/react-code-mirror.svg)](https://www.npmjs.org/package/react-code-mirror)
+Deprecated. Use https://github.com/scniro/react-codemirror2
 
 ## Installation
 
